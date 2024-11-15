@@ -1,19 +1,34 @@
 // Add imports in the top
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
+import { User, UserContext } from "./context/userCtx";
+import { useEffect, useState } from "react";
 
 
 export default function App() {
-  return <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="*" element={<>Error page</>} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
-    ;
+
+  const [user, setUser] = useState<User>({ isLogged: false })
+
+
+  useEffect(() => {
+      
+    setTimeout(() => setUser({ isLogged: true, name: 'laboratori', email: 'labo@c.com' }), 5000)
+  }, [])
+
+  return <UserContext.Provider value={user}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+        <Route path="/video" element={<Layout />}>
+          <Route path="{id}" element={<Profile />} />
+          <Route path="*" element={<>Error video page</>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </UserContext.Provider>
 }

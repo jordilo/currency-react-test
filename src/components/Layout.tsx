@@ -9,7 +9,6 @@ export const Layout = () => {
     return <>
         <Header />
         <Container fixed maxWidth="sm" disableGutters style={{padding: '8px'}}>
-
             <Outlet />
         </Container>
     </>
