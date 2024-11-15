@@ -15,7 +15,7 @@ export function Home() {
                             Current {curentCurrency} rate is
                         </Typography>
                         <Typography variant="h5">
-                            {rate}xxxx
+                            {rate}
                         </Typography>
                     </CardContent>
                     <CardActions>
