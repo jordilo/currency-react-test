@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 
-type CardProps = {
+export type CardProps = {
     title: string;
     subTitle: string;
     description: string;
@@ -10,7 +10,7 @@ type CardProps = {
 export function CardComponent({ image, description, subTitle, title }: CardProps) {
 
 
-    return <Card sx={{ maxWidth: 345 }}>
+    return <Card sx={{ maxWidth: 345 }} data-testid="card">
         <CardActionArea> <CardMedia component="img" height="140" image={image} alt="profile image" />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div"> {title} </Typography>

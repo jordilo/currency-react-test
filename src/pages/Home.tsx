@@ -1,17 +1,17 @@
-import { Button, Card, CardActions, CardContent, CircularProgress, Typography } from "@mui/material"
-import { useCurrency } from "../hooks/useCurrency"
+import {Button, Card, CardActions, CardContent, CircularProgress, Typography} from "@mui/material"
+import {useCurrency} from "../hooks/useCurrency"
 
 export function Home() {
 
-    const { isLoading, curentCurrency, switchCurrency, rate } = useCurrency()
+    const {isLoading, curentCurrency, switchCurrency, rate} = useCurrency()
 
 
     return <div>
-        {isLoading ? <CircularProgress size="3rem" /> :
+        {isLoading ? <CircularProgress size="3rem"/> :
             (<>
-                <Card sx={{ minWidth: 275 }}>
+                <Card sx={{minWidth: 275}} data-testid="currency-card">
                     <CardContent>
-                        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }} component="div">
+                        <Typography gutterBottom sx={{color: 'text.secondary', fontSize: 14}} component="div">
                             Current {curentCurrency} rate is
                         </Typography>
                         <Typography variant="h5">
