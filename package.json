@@ -8,7 +8,8 @@
     "test": "react-scripts test",
     "jest": "jest",
     "eject": "react-scripts eject",
-    "ui-test": "npx playwright test --ui"
+    "ui-test": "npx playwright test --ui",
+    "format": "prettier ./src --write "
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -36,11 +37,16 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "babel-jest": "^29.7.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "html2canvas": "^1.4.1",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-fetch-mock": "^3.0.3",
     "jest-image-snapshot": "^6.4.0",
+    "prettier": "3.3.3",
     "react-router-dom": "^6.26.2",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2"
@@ -51,8 +57,15 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "unused-imports"
+    ],
+    "rules": {
+      "unused-imports/no-unused-imports": "warn"
+    }
   },
   "browserslist": {
     "production": [
@@ -65,5 +78,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "printWidth": 90,
+    "bracketSpacing": true,
+    "trailingComma": "es5",
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
   }
 }

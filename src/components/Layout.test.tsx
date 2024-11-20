@@ -1,8 +1,7 @@
-import { Layout } from "./Layout"
+import { Layout } from './Layout';
 
 describe('Layout test', () => {
-    it('should be rendered', () => {
-
-        expect(<Layout />).toBeDefined();
-    })
-})
+  it('should be rendered', () => {
+    expect(<Layout />).toBeDefined();
+  });
+});
