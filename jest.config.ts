@@ -1,17 +1,17 @@
-import type { Config } from "jest";
+import type {Config} from 'jest';
 
 const config: Config = {
-  testEnvironment: "jsdom",
-  setupFiles: ["<rootDir>/jest.setup.ts"],
+  testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/jest.setup.ts'],
   testEnvironmentOptions: {
-    customExportConditions: [""],
+    customExportConditions: [''],
   },
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
-    "^.+\\.(css|saas|scss)?$": "identity-obj-proxy",
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(css|saas|scss)?$': 'identity-obj-proxy',
   },
-  transformIgnorePatterns: ["/node_modules/"],
-  moduleNameMapper: { "\\.(css|less)$": "identity-obj-proxy" },
+  transformIgnorePatterns: ['/node_modules/'],
+  moduleNameMapper: {'\\.(css|less)$': 'identity-obj-proxy'},
   coverageThreshold: {
     global: {
       branches: 75,
